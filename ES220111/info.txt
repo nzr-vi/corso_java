@@ -1,0 +1,54 @@
+# 1. Esercizi su istruzioni condizionali e cicli
+---
+## 1.1. Esercizio
+Scrivere un programma che stampi a video i primi dieci numeri interi
+---
+## 1.2. Esercizio
+Scrivere un programma che stampi a video i primi dieci interi pari 
+compresi fra 20 e 0, partendo da 20.
+---
+## 1.3. Esercizio
+Scrivere un programma che stampi le tabellina del numero dato come 
+argomento
+---
+## 1.4. Esercizio
+Stampare a video la seguente figura:
+java
+**
+***
+**
+*
+**
+*
+---
+## 1.5. Esercizio
+Stampare a video la seguente figura:
+java
+#
+##
+###
+####
+#####
+######
+---
+## 1.6. Esercizio
+Stampare a video la seguente figura:
+java
+1      654321
+12      54321
+123      4321
+1234      321
+12345      21
+123456      1
+---
+## 1.7. Esercizio
+Scrivere un programma che stampi i primi 100 elementi della successione di 
+Fibonacci.
+---
+## 1.8. Esercizio
+Scrivere un programma *TuttiPositiviPari* che chiede allâutente di 
+inserire una sequenza di interi (chiedendo prima quanti numeri voglia 
+inserire) e poi, al termine dellâinserimento dellâintera sequenza, 
+stampa "Tutti positivi e pari" se i numeri inseriti sono tutti positivi e 
+pari, altrimenti stampa "NO".
+---
