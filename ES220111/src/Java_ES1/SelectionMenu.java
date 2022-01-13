@@ -1,12 +1,9 @@
 package Java_ES1;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
-import Java_ES1.Exercise;
 
 public class SelectionMenu {
 	
