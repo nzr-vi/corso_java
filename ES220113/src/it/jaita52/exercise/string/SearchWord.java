@@ -40,21 +40,26 @@ public class SearchWord extends Exercise {
 		this.setDescription("Cerca Parola");
 	}
 
-	public int matches(String text, String toBeFound) {
-		int index = 0;
-		int found = 0;
+	public int matches(String text, String toBeFound) throws ExerciseException {
+		int index = 0, found = 0, step = toBeFound.length();
 
-		while ((index = text.substring(index).indexOf(toBeFound)+1) > 0)
+		if (step == 0)
+			throw new ExerciseException("Word to be Found must be at least 1 char long");
+
+		while ((index = (text.indexOf(toBeFound,index) + step)) >= step)
 			found++;
 
 		return found;
+
 	}
 
-	private int runMatches() {
+	private int runMatches() throws ExerciseException {
+		if(this.text == null || this.word == null)
+			throw new ExerciseException("Text and Word must be initialized!!");
 		return this.matches(this.text, this.word);
 	}
 
-	private void print() {
+	private void print() throws ExerciseException {
 		System.out.println("The word: \"" + this.word + "\" is present: " + this.runMatches() + " times");
 	}
 
