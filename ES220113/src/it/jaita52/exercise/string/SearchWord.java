@@ -41,6 +41,10 @@ public class SearchWord extends Exercise {
 	}
 
 	public int matches(String text, String toBeFound) throws ExerciseException {
+		
+		if(text == null || toBeFound == null)
+			throw new ExerciseException("Text and Word must be initialized!!");
+			
 		int index = 0, found = 0, step = toBeFound.length();
 
 		if (step == 0)
@@ -54,8 +58,6 @@ public class SearchWord extends Exercise {
 	}
 
 	private int runMatches() throws ExerciseException {
-		if(this.text == null || this.word == null)
-			throw new ExerciseException("Text and Word must be initialized!!");
 		return this.matches(this.text, this.word);
 	}
 
