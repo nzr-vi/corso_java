@@ -1,7 +1,8 @@
 package it.jaita52.exercise.array;
 
 import java.util.Scanner;
-import it.jaita52.exercise.util.*;
+
+import it.jaita52.exercise.model.*;
 
 public class Es2 extends Exercise{
 

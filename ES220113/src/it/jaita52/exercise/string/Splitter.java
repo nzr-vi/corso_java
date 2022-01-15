@@ -1,7 +1,8 @@
 package it.jaita52.exercise.string;
 
 import java.util.Scanner;
-import it.jaita52.exercise.util.*;
+
+import it.jaita52.exercise.model.*;
 
 public class Splitter extends Exercise {
 

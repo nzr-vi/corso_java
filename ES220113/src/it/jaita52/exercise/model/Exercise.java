@@ -1,4 +1,4 @@
-package it.jaita52.exercise.util;
+package it.jaita52.exercise.model;
 
 import java.util.Scanner;
 

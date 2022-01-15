@@ -1,4 +1,4 @@
-package it.jaita52.exercise.util;
+package it.jaita52.exercise.model;
 
 public class Extensions {
 	public static <T> void printCollection(Iterable<T> collection){		

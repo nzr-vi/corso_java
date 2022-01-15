@@ -1,10 +1,11 @@
-package it.jaita52.exercise.util;
+package it.jaita52.exercise.control;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import it.jaita52.exercise.array.*;
+import it.jaita52.exercise.model.Exercise;
 import it.jaita52.exercise.string.*;
 
 public class SelectionMenu {
@@ -33,6 +34,7 @@ public class SelectionMenu {
 		this.exercizes.add(new OnlyVowels(this.inputScan));
 		this.exercizes.add(new Splitter(this.inputScan));
 		this.exercizes.add(new ReplaceNumbers(this.inputScan));
+		this.exercizes.add(new SearchWord(this.inputScan));
 		this.exercizes = new ArrayList<>(this.exercizes);
 	}
 	

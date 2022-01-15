@@ -3,7 +3,8 @@ package it.jaita52.exercise.string;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import it.jaita52.exercise.util.*;
+
+import it.jaita52.exercise.model.*;
 
 public class ReplaceNumbers extends Exercise {
 

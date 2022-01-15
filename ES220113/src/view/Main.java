@@ -1,4 +1,5 @@
-import it.jaita52.exercise.util.SelectionMenu;
+package view;
+import it.jaita52.exercise.control.SelectionMenu;
 
 //# 1. Esercizi su istruzioni condizionali e cicli
 public class Main {

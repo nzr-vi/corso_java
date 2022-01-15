@@ -3,7 +3,7 @@ package it.jaita52.exercise.array;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import it.jaita52.exercise.util.*;
+import it.jaita52.exercise.model.*;
 
 public class Es3 extends Exercise{
 
