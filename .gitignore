@@ -24,7 +24,6 @@ hs_err_pid*
 
 *.prefs
 *.classpath 
-*.project
 
 # git and exlipse stuff i don't want to paste
 *.history
