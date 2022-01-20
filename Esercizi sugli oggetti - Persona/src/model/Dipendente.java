@@ -4,17 +4,17 @@ import java.text.ParseException;
 
 public class Dipendente extends Persona {
 
-	protected long yearlyIncome = 0;
+	protected float yearlyIncome = 0;
 	
 	public Dipendente(String name, String surname, String birth) throws ParseException {
 		super(name, surname, birth);
 	}
 
-	public long getYearlyIncome() {
+	public float getYearlyIncome() {
 		return yearlyIncome;
 	}
 
-	public void setYearlyIncome(long yearlyIncome) {
+	public void setYearlyIncome(float yearlyIncome) {
 		this.yearlyIncome = yearlyIncome;
 	}
 	
