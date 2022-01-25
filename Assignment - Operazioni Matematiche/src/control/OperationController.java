@@ -1,5 +1,6 @@
 package control;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -86,6 +87,9 @@ public class OperationController {
 				this.inputA = Integer.parseInt(input);
 			else
 				this.inputB = Integer.parseInt(input);
+		}
+		catch (NumberFormatException e) {
+			this.error.add("Unable to parse integer\n"+e.getMessage());			
 		}
 		catch (Exception e) {
 			this.error.add(e.getMessage());

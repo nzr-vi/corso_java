@@ -35,7 +35,7 @@ public class Calcolatrice {
 		if(!this.cOutput.isBlank())
 			System.out.println(this.cOutput);
 		if(!this.cError.isBlank())
-			System.out.println(this.cError);			
+			System.err.println(this.cError);			
 	}
 	
 	public Calcolatrice() {
