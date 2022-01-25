@@ -25,7 +25,8 @@ hs_err_pid*
 *.prefs
 *.classpath 
 
-# git and exlipse stuff i don't want to paste
+# git and eclipse stuff i don't want to paste
+*.gitignore
 *.history
 *.index
 *.dat
