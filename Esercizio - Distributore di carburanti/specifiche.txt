@@ -1,0 +1,25 @@
+
+
+
+Basandosi sul modello di applicazione console MVC predisporre un programma che
+-	Permetta di caricare informazioni relative a Distributori di carburanti
+		Informazioni Generali ( NomeDistributore Indirizzo)
+		Tipi specifici di Distributori
+		Ordinari (capacitaBenzina, capacitaDiesel)
+		Gas (capacitaBenzina, capacitaDiesel, capacitaGas)
+		Elettrico (capacitaBenzina, capacitaDiesel, capacitaGas) //non è un 
+			inc->formazione extra - ma possono effettuare un operazione in più
+			Carico il distributore e ne scelgo il tipo
+		
+		Terminata la fase di caricamento
+		Fincheé non decido di uscire mediante un apposito comando da definire
+		Tramite l'interfaccia posso simulare delle operazioni
+		
+		-	caricoDistributore
+			(cosa e quanti litri vengono caricati NEL distributore E su quale distributore)
+		
+		-	rifornimento
+			(cosa e quanti litri/kw vengono caricati per un AUTOVETTURA E su quale distributore)
+		
+		Una volta inserita EXIT come operazione per chiudere
+		Mostrare a video la lista delle operazioni fatte fino a quel momento sul distributore per distributore
