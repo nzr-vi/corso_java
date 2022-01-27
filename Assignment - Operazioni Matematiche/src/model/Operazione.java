@@ -1,5 +1,5 @@
 package model;
 
 public interface Operazione {
-	public int calcola(Integer a, Integer b) throws CalcolatriceException ;
+	public double calcola(Double a, Double b) throws CalcolatriceException ;
 }

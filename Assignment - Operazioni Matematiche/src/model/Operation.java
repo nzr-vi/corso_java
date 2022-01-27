@@ -1,7 +1,7 @@
 package model;
 
 abstract class Operation implements Operazione{
-	protected Integer a,b,result;
+	protected Double a,b,result;
 	protected String operationSign;
 	
 	Operation() {
@@ -23,7 +23,7 @@ abstract class Operation implements Operazione{
 	}
 
 	@Override
-	public int calcola(Integer a, Integer b) throws CalcolatriceException {
+	public double calcola(Double a, Double b) throws CalcolatriceException {
 		this.a = a;
 		this.b = b;
 		this.result = null;
@@ -33,7 +33,7 @@ abstract class Operation implements Operazione{
 		return this.result;
 	}
 	
-	protected abstract int doOperation();
+	protected abstract double doOperation() throws CalcolatriceException;
 	
 	@Override
 	public String toString() {	

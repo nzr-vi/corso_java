@@ -7,7 +7,7 @@ public class Somma extends Operation{
 	}
 
 	@Override
-	protected int doOperation() {
+	protected double doOperation() {
 		return this.a+this.b;
 	}
 }

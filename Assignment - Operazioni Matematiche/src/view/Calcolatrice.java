@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Scanner;
 
 import control.OperationController;
+import model.CalcolatriceException;
 
 public class Calcolatrice {
 	
 	private Scanner scanner;
 	private OperationController controller;
 	private boolean hasToEnd;
-	private String cError, cOutput;
+	private String cOutput;
 
 	private String buildSingleString(List<String> log) {
 		StringBuilder sb = new StringBuilder();
@@ -18,31 +19,17 @@ public class Calcolatrice {
 		return sb.toString();
 	}
 	
-	private void downloadError() {
-		this.cError = this.buildSingleString(this.controller.getError());
-	}
-	
-	private void downloadOutput() {
+	private void loadAndPrintOutput() {
 		this.cOutput = this.buildSingleString(this.controller.getOutput());
-	}
-	
-	private void downloadStream() {
-		this.downloadError();
-		this.downloadOutput();
-	}
-	
-	private void printStream() {
 		if(!this.cOutput.isBlank())
 			System.out.println(this.cOutput);
-		if(!this.cError.isBlank())
-			System.err.println(this.cError);			
 	}
 	
 	public Calcolatrice() {
 		this.scanner = new Scanner(System.in);
 		this.controller = OperationController.getInstance();
 		this.hasToEnd = false;
-		this.cError = this.cOutput = "";
+		this.cOutput = "";
 	}
 	
 	private void showInfo() {
@@ -54,27 +41,18 @@ public class Calcolatrice {
 				+ " - divisione\n");
 	}
 	
-	private void operationCreation() {
+	private void operationCreation() throws CalcolatriceException {
 		System.out.print("Operazione: ");
 		this.controller.operationInterpreter(this.scanner.nextLine());
-		this.downloadStream();
-		if(!this.cError.isBlank())
-			return;
-		System.out.print(this.cOutput);
+		this.loadAndPrintOutput();
 		System.out.print("A: ");
 		this.controller.numberInterpreter(this.scanner.nextLine(),true);
-		this.downloadStream();
-		if(!this.cError.isBlank())
-			return;
-		System.out.print(this.cOutput);
+		this.loadAndPrintOutput();
 		System.out.print("B: ");
 		this.controller.numberInterpreter(this.scanner.nextLine(),false);
-		this.downloadStream();
-		if(!this.cError.isBlank())
-			return;
-		System.out.print(this.cOutput);
+		this.loadAndPrintOutput();
 		this.controller.executeOperation();
-		this.downloadStream();
+		this.loadAndPrintOutput();
 	}
 	
 	private void showMenu() {
@@ -82,8 +60,7 @@ public class Calcolatrice {
 				+ "[1]: Nuova Operazione\n"
 				+ "[2]: Info Operazioni\n"
 				+ "[3]: Log Operazioni\n"
-				+ "[0]: EXIT\n\n"
-				+ "");
+				+ "[0]: EXIT\n\n");
 	}
 	
 	private void printHistory() {
@@ -93,11 +70,12 @@ public class Calcolatrice {
 		for(int i = 0; i<history.size(); i++)
 			sb.append("#"+(i+1)+"\t"+history.get(i)+"\n");
 		System.out.println(sb);
-		this.downloadStream();
+		this.loadAndPrintOutput();
 	}
 	
 	private void loop() {
 		this.showMenu();
+		System.out.print("selection: ");
 		try {
 			int selection = Integer.parseInt(this.scanner.nextLine());
 			switch (selection) {
@@ -111,7 +89,7 @@ public class Calcolatrice {
 					
 				case 2:
 					this.showInfo();
-					return;
+					break;
 					
 				case 3:
 					this.printHistory();
@@ -120,10 +98,7 @@ public class Calcolatrice {
 				default:
 					System.err.println("Invalid selection");
 					break;
-			}
-
-			this.printStream();
-			
+			}	
 		}catch(Exception e) {
 			System.err.println(e.getMessage());
 		}
