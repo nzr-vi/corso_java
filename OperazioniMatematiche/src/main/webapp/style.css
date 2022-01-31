@@ -29,6 +29,7 @@
 	font-size: 18px;
 	text-align: right;
 	padding: 10px;
+	white-space: pre-wrap;
 }
 
 button{

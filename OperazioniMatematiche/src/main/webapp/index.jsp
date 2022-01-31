@@ -12,9 +12,7 @@
 
 	<div class="centered column">
 		<h1>CALCOLATRICE</h1>
-		<div id="display">
-
-		</div>
+		<div id="display"></div>
 		<div class = "centered spbetween">
 			<div id="numpad" class = "centered column">
 			</div>

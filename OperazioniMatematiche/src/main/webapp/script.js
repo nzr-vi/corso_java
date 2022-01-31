@@ -6,6 +6,8 @@
 
 const display = document.getElementById('display');
 let hasToClear = false;
+let lastWasOperator = false;
+//let lastWasNumber = false;
 
 function sendToServlet(data){
     const URL = 'api/ctrl';
@@ -19,30 +21,52 @@ function sendToServlet(data){
 }
 
 function fetchResultFromServet(){
+	hasToClear = true;
     const data = {
         equation: display.innerText
     };
 	sendToServlet(data).then(response => {
-			console.log(response.status);
+			//console.log(response.status);
 			return response.json();
 		}) 
-		.then(jsonArray => {
- 			console.log(jsonArray);
-			for (const studente of jsonArray) {				
- 				console.log(studente);
-			}
+		.then(jsonObj => {
+ 			//console.log(jsonArray);
+			const resultString = jsonObj["result"].replace('.',',');
+			const result= document.createTextNode(resultString);
+			const h3Node = document.createElement("h3");
+			h3Node.appendChild(result);
+			display.appendChild(h3Node);			
 		});
 }
 
-function onClickPrintToDisplay(event){
+function onClickPrintNumber(event){
+    event.stopPropagation();
+
     if(hasToClear){
-        display.textNode = document.createTextNode('');
+        display.innerText = '';
+        hasToClear = false;
+    }
+
+    let number = event.target.innerText;
+
+	if(lastWasOperator){
+		number = ' '+number;
+	}	
+
+    display.innerText+=number;
+	lastWasOperator = false;
+}
+
+function onClickPrintOperator(event){
+    if(hasToClear){
+        display.innerText = '';
         hasToClear = false;
     }
 
     event.stopPropagation();
-    const number = event.target.innerText;
-    display.innerText+=number;
+    let operator = ' '+event.target.innerText;
+    display.innerText+=operator;
+	lastWasOperator ^= true;
 }
 
 function initButton(text, onClick){
@@ -64,7 +88,7 @@ function initKeyboard(){
             divRow = document.createElement("div");
             divRow.classList.add("centered");
         }
-        divRow.appendChild(initButton(i,onClickPrintToDisplay));
+        divRow.appendChild(initButton(i,onClickPrintNumber));
     }
     if(divRow!=null){
         divContainer.appendChild(divRow);
@@ -72,7 +96,7 @@ function initKeyboard(){
 }
 
 function initCommands(){
-    const commands = ['+','-','*','/',','];
+    const commands = ['+','-','*','/'];
     const divContainer = document.getElementById("operation");
     let divRow = null;    
     commands.forEach((v,i)=>{
@@ -83,10 +107,15 @@ function initCommands(){
             divRow = document.createElement("div");
             divRow.classList.add("centered");
         }
-        divRow.appendChild(initButton(v,onClickPrintToDisplay));
+        divRow.appendChild(initButton(v,onClickPrintOperator));
     });
-
-    const button = initButton('=',onClickPrintToDisplay);
+    if(divRow!=null){
+        divContainer.appendChild(divRow);
+    }
+    divRow = document.createElement("div");
+    divRow.classList.add("centered");
+    divRow.appendChild(initButton(',',onClickPrintNumber));
+    const button = initButton('=',onClickPrintOperator);
     button.addEventListener('click',fetchResultFromServet);
     button.id=("executeOperation");
     divRow.appendChild(button);

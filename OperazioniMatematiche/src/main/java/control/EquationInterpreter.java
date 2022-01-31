@@ -42,9 +42,9 @@ public class EquationInterpreter {
 		StringReader buffer = new StringReader(singleOperation);
 		Scanner inputOperation = new Scanner(buffer);
 		try {
-			this.controller.numberInterpreter(inputOperation.next(), false);
-			this.controller.operationInterpreter(inputOperation.next());
 			this.controller.numberInterpreter(inputOperation.next(), true);
+			this.controller.operationInterpreter(inputOperation.next());
+			this.controller.numberInterpreter(inputOperation.next(), false);
 			return this.controller.executeOperation();
 		} catch (Exception e) {
 			throw e;
@@ -56,7 +56,8 @@ public class EquationInterpreter {
 
 	public void interpret() throws EquationException {
 		int index = 0;
-
+		this.executionFlow.clear();
+		
 		List<Integer> openings = this.findAllIndex(this.equation, "("),
 				closings = this.findAllIndex(this.equation, ")");
 
