@@ -1,0 +1,59 @@
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    background-color: #404040;
+}
+
+
+
+.d3bo{
+    color:#ff0000;
+}
+
+.uff_imp{
+    color: #ff3c00;
+}
+
+.darth_feneer{
+    color: #ffa600;
+}
+
+.rebel{
+    color: #ffd000;
+}
+
+.soldier1{
+    color: #e5ff00;
+}
+
+.soldier2{
+    color: #51ff00;
+}
+
+.capo_pilota{
+    color: #00ff22;
+}
+
+.capitano{
+    color: #00ff95;
+}
+
+.comandante{
+    color: #00ffaa;
+}
+
+.ufficiale2{
+    color: #00d9ff;
+}
+
+.comandante{
+    color: #0051ff;
+}
+
+.leila{
+    color: #8400ff;
+}
+
+.leila_organa{
+    color: #ff00b3;
+}
